@@ -4,7 +4,6 @@ import { View, FlatList, Image, StyleSheet } from "react-native"
 import { Link, Stack } from "expo-router"
 import { FlatGrid } from "react-native-super-grid"
 import { fetchProducts } from "../../app/data"
-import { ScrollView } from "react-native-gesture-handler"
 
 const Details = () => {
   const [products, setProducts] = useState([])
@@ -13,14 +12,12 @@ const Details = () => {
   const styles = StyleSheet.create({
     container: {
       height: 250,
+      width: 160,
+      padding: 10,
       backgroundColor: "white",
       borderRadius: 5,
       justifyContent: "center",
       shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 3,
-      },
       shadowOpacity: 0.27,
       shadowRadius: 4.65,
       elevation: 6,
@@ -43,25 +40,28 @@ const Details = () => {
 
     fetchData()
   }, [])
+
   return (
     <View style={{ flex: 1 }}>
       <FlatGrid
         itemDimension={130}
-        data={products.slice(0, 12)}
+        data={products}
         style={styles.gridView}
         showsVerticalScrollIndicator={false}
         // staticDimension={300}
         // fixed
         spacing={10}
         renderItem={({ item }) => (
-          <View style={styles.container} >
-            <Image
-              source={{ uri: item.image, headers: { Accept: "image/*" } }}
-              style={{ height: 180, width: '100%', resizeMode: "contain" }}
-            />
+          <Link href={`productdetails/${item.id}`}>
+            <View style={styles.container}>
+              <Image
+                source={{ uri: item.image, headers: { Accept: "image/*" } }}
+                style={{ height: 180, width: "100%", resizeMode: "contain" }}
+              />
 
-            <Text style={styles.itemName}>{item.title}</Text>
-          </View>
+              <Text style={styles.itemName}>{item.title.slice(0, 18)}...</Text>
+            </View>
+          </Link>
         )}
       />
     </View>
