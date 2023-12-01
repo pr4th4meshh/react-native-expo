@@ -13,6 +13,14 @@ const Layout = () => {
           headerTitle: "Product Details:",
         }}
       />
+      <Stack.Screen
+        name="productcategory/[category]"
+        options={{
+          headerStyle: {
+            backgroundColor: "#38a3a5",
+          },
+        }}
+      />
     </Stack>
   )
 }

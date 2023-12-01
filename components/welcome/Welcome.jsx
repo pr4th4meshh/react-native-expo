@@ -2,10 +2,35 @@ import React from "react"
 import { FlatList, TouchableOpacity } from "react-native"
 import { Text, TextInput, View, Image } from "react-native"
 
-import avatar from "../../images/avatar.png"
+import womens from "../../images/womensclothing.webp"
+import mens from "../../images/womensclothing.webp"
+import jewelery from "../../images/jewelery.jpeg"
+import electronics from "../../images/electronics.webp"
+
 import { Link } from "expo-router"
 
-const data = [avatar, avatar, avatar, avatar, avatar, avatar, avatar]
+const data = [
+  {
+    image: electronics,
+    categoryName: "Electronics",
+    categoryType: '/electronics'
+  },
+  {
+    image: jewelery,
+    categoryName: "Jewelery",
+    categoryType: '/jewelery'
+  },
+  {
+    image: mens,
+    categoryName: "Men's Clothing",
+    categoryType: `/men's clothing`
+  },
+  {
+    image: womens,
+    categoryName: "Women's Clothing",
+    categoryType: `/women's clothing`
+  },
+]
 
 const Welcome = () => {
   return (
@@ -59,19 +84,19 @@ const Welcome = () => {
         </View>
 
         <TouchableOpacity>
-          <Text>Show all</Text>
+          <Text style={{ color: "#38a3a5" }}>Show all</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={{ marginTop: 16 }}>
+      <View style={{ marginTop: 16, marginBottom: 20 }}>
         <FlatList
           data={data}
           renderItem={({ item }) => (
-            <Link href='/productdetails/1' >
-            <View style={{ alignItems: "center" }}>
-              <Image source={item} style={{ height: 80, width: 80 }} />
-              <Text>Clothes</Text>
-            </View>
+            <Link href={`/productcategory/${item.categoryType}`}>
+              <View style={{ alignItems: "center" }}>
+                <Image source={item.image} style={{ height: 80, width: 80, borderRadius: 50, resizeMode: "contain" }} />
+                <Text>{item.categoryName}</Text>
+              </View>
             </Link>
           )}
           contentContainerStyle={{ columnGap: 12 }}
