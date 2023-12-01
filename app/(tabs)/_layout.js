@@ -1,18 +1,28 @@
-import { Tabs } from 'expo-router'
-import React from 'react'
+import { Tabs } from "expo-router"
+import React from "react"
 
 const TabsLayout = () => {
   return (
     <Tabs>
-        <Tabs.Screen name='index' options={{
-          headerTitle: "Home",
+      <Tabs.Screen
+        name="index"
+        options={{
+          headerTitle: "PR4MAZON",
           title: "Home",
-          headerTitleAlign: 'center'
-        }} />
-        <Tabs.Screen name='profile' options={{
-            headerTitle: "Your Profile",
-            title: "Profile"
-        }} />
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "#38a3a5",
+          },
+          headerTintColor: "white",
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          headerTitle: "Your Profile",
+          title: "Profile",
+        }}
+      />
     </Tabs>
   )
 }

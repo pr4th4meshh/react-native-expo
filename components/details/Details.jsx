@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Text } from "react-native"
+import { ScrollView, Text } from "react-native"
 import { View, FlatList, Image, StyleSheet } from "react-native"
 import { Link, Stack } from "expo-router"
 import { FlatGrid } from "react-native-super-grid"
@@ -47,12 +47,12 @@ const Details = () => {
         itemDimension={130}
         data={products}
         style={styles.gridView}
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator
         // staticDimension={300}
         // fixed
         spacing={10}
         renderItem={({ item }) => (
-          <Link href={`productdetails/${item.id}`}>
+          <Link href={`productdetails/${item.id}`} >
             <View style={styles.container}>
               <Image
                 source={{ uri: item.image, headers: { Accept: "image/*" } }}
