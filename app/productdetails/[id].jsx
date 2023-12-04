@@ -10,6 +10,7 @@ import {
 } from "react-native"
 import { fetchSingleProd } from "../data"
 import { useLocalSearchParams } from "expo-router"
+import LoadingScreen from "../../components/loading"
 
 const ProductDetail = () => {
   const [product, setProduct] = useState(null)
@@ -29,7 +30,7 @@ const ProductDetail = () => {
   }, [id])
 
   if (!product) {
-    return <Text>Loading...</Text>
+    return <LoadingScreen />
   }
 
   return (
