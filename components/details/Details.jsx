@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { View, Text, Image, StyleSheet, ActivityIndicator } from "react-native"
+import { View, Text, Image, StyleSheet, ActivityIndicator, ScrollView, SafeAreaView } from "react-native"
 import { Link } from "expo-router"
 import { FlatGrid } from "react-native-super-grid"
 import { fetchProducts } from "../../app/data"
@@ -81,7 +81,7 @@ const Details = () => {
 
   return (
     <View style={{ flex: 1, margin: 0, padding: 0 }}>
-      <View style={{ flex: 1, flexGrow: 1 }}>
+      <SafeAreaView style={{ flex: 1, flexGrow: 1 }}>
         <FlatGrid
           itemDimension={130}
           data={products}
@@ -92,7 +92,7 @@ const Details = () => {
           // onEndReached={loadMoreData}
           ListFooterComponent={renderFooter}
         />
-      </View>
+      </SafeAreaView>
     </View>
   )
 }

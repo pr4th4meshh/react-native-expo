@@ -25,8 +25,13 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="profile"
         options={{
-          headerTitle: "Your Profile",
+          headerTitle: "Your Profile:",
           title: "Profile",
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "#38a3a5",
+          },
+          headerTintColor: "white",
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="md-man" size={size} color={color} />
