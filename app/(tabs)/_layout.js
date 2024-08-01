@@ -8,7 +8,7 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          headerTitle: "PR4MAZON",
+          headerTitle: "Re-Inventory",
           title: "Home",
           headerTitleAlign: "center",
           headerStyle: {
